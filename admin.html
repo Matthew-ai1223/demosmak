@@ -9,26 +9,6 @@
 </head>
 <body class="dash-page">
 
-    <!-- Top Status Bar -->
-    <header class="top-bar">
-        <div class="container">
-            <div class="top-info">
-                <span class="top-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    Administrative Directorate Hub &bull; Full Access
-                </span>
-                <span class="top-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    System Status: Operational &bull; Database Synced
-                </span>
-            </div>
-            <div class="top-switcher">
-                <label for="global-student-select">Inspect Student Profile:</label>
-                <select id="global-student-select" class="student-select-input" aria-label="Inspect student profile"></select>
-            </div>
-        </div>
-    </header>
-
     <!-- Navigation Header -->
     <nav class="main-header" aria-label="Main Navigation">
         <div class="container nav-container">
@@ -70,12 +50,28 @@
 
     <main class="dash-layout">
         <aside class="dash-rail">
-            <span class="dash-rail-kicker">Centre control</span>
+            <div class="dash-profile">
+                <div class="dash-profile-avatar">AD</div>
+                <div class="dash-profile-name">Admin Console</div>
+                <span class="dash-profile-role">Centre directorate</span>
+            </div>
             <nav class="portal-tabs" aria-label="Admin Sections">
-                <button type="button" class="portal-tab-btn active" data-tab="tab-adm-students">Students</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-adm-revenue">Revenue</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-adm-cbt">CBT logs</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-adm-tutors">Tutors</button>
+                <button type="button" class="portal-tab-btn active" data-tab="tab-adm-students">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    Students
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-adm-revenue">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Revenue
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-adm-cbt">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    CBT logs
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-adm-tutors">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Tutors
+                </button>
             </nav>
         </aside>
 
@@ -86,43 +82,75 @@
                     <p>Enrolments, assessments, and collections.</p>
                 </div>
                 <div class="dash-toolbar-actions">
+                    <label class="dash-switcher">
+                        <span>Inspect</span>
+                        <select id="global-student-select" class="student-select-input" aria-label="Inspect student profile"></select>
+                    </label>
                     <button type="button" class="btn btn-secondary btn-sm" onclick="exportDataSummary()">Export</button>
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="resetDatabaseConfirm()">Reset demo</button>
                     <button type="button" class="btn btn-primary btn-sm open-register-modal-btn">Add student</button>
                 </div>
             </div>
 
-            <div class="stats-cards-grid" style="margin-bottom: 1.5rem;">
+            <div class="stats-cards-grid dash-kpi-row">
                 <div class="stat-kpi-card">
-                    <span class="label">Total Students</span>
+                    <span class="label">Students</span>
                     <div class="number" id="adm-kpi-students">2</div>
-                    <span class="sub">Active Registrations</span>
+                    <span class="sub">Active enrolments</span>
                 </div>
 
                 <div class="stat-kpi-card">
-                    <span class="label">Active Faculty</span>
+                    <span class="label">Faculty</span>
                     <div class="number" id="adm-kpi-tutors">4</div>
-                    <span class="sub">Allocated Tutors</span>
+                    <span class="sub">Allocated tutors</span>
                 </div>
 
                 <div class="stat-kpi-card">
-                    <span class="label">CBT Mocks Conducted</span>
+                    <span class="label">CBT mocks</span>
                     <div class="number" id="adm-kpi-cbt">3</div>
-                    <span class="sub">Graded Submissions</span>
+                    <span class="sub">Graded submissions</span>
                 </div>
 
                 <div class="stat-kpi-card">
-                    <span class="label">Total Revenue</span>
-                    <div class="number" style="color: var(--success);" id="adm-kpi-revenue">NGN 95,000</div>
-                    <span class="sub">Paystack Verified</span>
+                    <span class="label">Revenue</span>
+                    <div class="number" id="adm-kpi-revenue">NGN 95,000</div>
+                    <span class="sub">Verified collections</span>
                 </div>
 
                 <div class="stat-kpi-card">
-                    <span class="label">Outstanding Balances</span>
-                    <div class="number" style="color: var(--danger);" id="adm-kpi-outstanding">NGN 20,000</div>
-                    <span class="sub">Pending Term Collection</span>
+                    <span class="label">Outstanding</span>
+                    <div class="number" id="adm-kpi-outstanding">NGN 20,000</div>
+                    <span class="sub">Pending this term</span>
                 </div>
             </div>
+
+            <section class="dash-charts">
+                <article class="chart-card">
+                    <h3>Enrolment by class</h3>
+                    <div class="bar-chart" id="adm-bar-chart">
+                        <div class="bar-col"><span class="bar" style="height:80%"></span><small>SSS 3</small></div>
+                        <div class="bar-col"><span class="bar" style="height:55%"></span><small>JSS 2</small></div>
+                    </div>
+                </article>
+                <article class="chart-card">
+                    <h3>CBT activity</h3>
+                    <svg class="area-chart" viewBox="0 0 240 120" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="admArea" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.85"></stop>
+                                <stop offset="100%" stop-color="#16325c" stop-opacity="0.15"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#admArea)" d="M0,88 C28,70 48,92 78,60 C108,28 128,50 158,34 C188,18 210,40 240,22 L240,120 L0,120 Z"></path>
+                    </svg>
+                </article>
+                <article class="chart-card">
+                    <h3>Collection rate</h3>
+                    <div class="donut-wrap">
+                        <div class="donut" id="adm-donut"></div>
+                        <div class="donut-label"><span id="adm-donut-val">82%</span><small>Collected</small></div>
+                    </div>
+                </article>
+            </section>
 
             <!-- TAB 1: Student Enrolment Roster -->
             <section id="tab-adm-students" class="tab-pane active">
@@ -406,6 +434,24 @@
             
             const eff = totalProjected > 0 ? ((totalCollected / totalProjected) * 100).toFixed(1) : 0;
             document.getElementById('rev-efficiency').textContent = `${eff}%`;
+
+            const byGrade = {};
+            students.forEach((s) => {
+                const key = s.grade || 'General';
+                byGrade[key] = (byGrade[key] || 0) + 1;
+            });
+            const maxGrade = Math.max(1, ...Object.values(byGrade));
+            const admBars = document.getElementById('adm-bar-chart');
+            if (admBars) {
+                admBars.innerHTML = Object.keys(byGrade).map((grade) => {
+                    const pct = Math.round((byGrade[grade] / maxGrade) * 100);
+                    return `<div class="bar-col"><span class="bar" style="height:${Math.max(12, pct)}%"></span><small>${grade}</small></div>`;
+                }).join('');
+            }
+            const donut = document.getElementById('adm-donut');
+            const donutVal = document.getElementById('adm-donut-val');
+            if (donut) donut.style.background = `conic-gradient(#f59e0b 0 ${eff}%, #16325c ${eff}% 100%)`;
+            if (donutVal) donutVal.textContent = `${eff}%`;
 
             // Tab 1: Students Roster Table
             const stTbody = document.getElementById('adm-students-tbody');

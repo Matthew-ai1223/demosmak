@@ -9,26 +9,6 @@
 </head>
 <body class="dash-page">
 
-    <!-- Top Status Bar -->
-    <header class="top-bar">
-        <div class="container">
-            <div class="top-info">
-                <span class="top-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    Demosmak SMS Support Line: +234 803 123 4567
-                </span>
-                <span class="top-info-item">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    2026 Academic Session &bull; Term 1 Active
-                </span>
-            </div>
-            <div class="top-switcher">
-                <label for="global-student-select">Active Student:</label>
-                <select id="global-student-select" class="student-select-input" aria-label="Select student profile"></select>
-            </div>
-        </div>
-    </header>
-
     <!-- Navigation Header -->
     <nav class="main-header" aria-label="Main Navigation">
         <div class="container nav-container">
@@ -70,44 +50,109 @@
 
     <main class="dash-layout">
         <aside class="dash-rail">
-            <span class="dash-rail-kicker">Student workspace</span>
+            <div class="dash-profile">
+                <div class="dash-profile-avatar" id="disp-student-avatar">CO</div>
+                <div class="dash-profile-name" id="disp-student-name">Chidinma Okafor</div>
+                <span class="dash-profile-role" id="disp-student-grade">SSS 3 - Science</span>
+                <span class="dash-profile-meta" id="disp-student-id">DT-2026-001</span>
+            </div>
             <nav class="portal-tabs" aria-label="Student management tabs">
-                <button type="button" class="portal-tab-btn active" data-tab="tab-profile">Profile</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-subjects">Subjects</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-tutors">Tutors</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-attendance">Attendance</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-tuition">Fees</button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-academic">Results</button>
+                <button type="button" class="portal-tab-btn active" data-tab="tab-profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Profile
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-subjects">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Subjects
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-tutors">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Tutors
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-attendance">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Attendance
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-tuition">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Fees
+                </button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-academic">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    Results
+                </button>
             </nav>
         </aside>
 
         <div class="dash-canvas">
             <div class="dash-toolbar">
                 <div>
-                    <h1>Student Portal</h1>
-                    <p>Records, fees, and performance in one workspace.</p>
+                    <h1>Student Dashboard</h1>
+                    <p>Performance, attendance, and fees at a glance.</p>
                 </div>
                 <div class="dash-toolbar-actions">
-                    <button type="button" class="btn btn-primary btn-sm open-register-modal-btn">Register</button>
+                    <label class="dash-switcher">
+                        <span>Student</span>
+                        <select id="global-student-select" class="student-select-input" aria-label="Select student profile"></select>
+                    </label>
                     <a href="cbt.html" class="btn btn-secondary btn-sm">Start CBT</a>
-                    <a href="payments.html" class="btn btn-secondary btn-sm">Pay fees</a>
+                    <a href="payments.html" class="btn btn-primary btn-sm">Pay fees</a>
                 </div>
             </div>
 
-            <section class="student-context-card" id="student-context-header">
-                <div class="student-info-meta">
-                    <div class="student-avatar" id="disp-student-avatar">CO</div>
-                    <div class="student-details">
-                        <h3 id="disp-student-name">Chidinma Okafor</h3>
-                        <div class="student-badges">
-                            <span class="status-badge" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;" id="disp-student-id">DT-2026-001</span>
-                            <span class="status-badge" style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1;" id="disp-student-grade">SSS 3 - Science</span>
-                            <span class="status-badge status-active" id="disp-student-status">Active Student</span>
-                        </div>
-                    </div>
+            <div class="stats-cards-grid dash-kpi-row">
+                <div class="stat-kpi-card">
+                    <span class="label">Attendance</span>
+                    <div class="number" id="sms-kpi-att">94%</div>
+                    <span class="sub" id="sms-kpi-att-sub">Sessions present</span>
                 </div>
+                <div class="stat-kpi-card">
+                    <span class="label">Average score</span>
+                    <div class="number" id="sms-kpi-avg">88%</div>
+                    <span class="sub" id="disp-student-status">Active student</span>
+                </div>
+                <div class="stat-kpi-card">
+                    <span class="label">CBT tests</span>
+                    <div class="number" id="sms-kpi-cbt">0</div>
+                    <span class="sub">Completed this term</span>
+                </div>
+                <div class="stat-kpi-card">
+                    <span class="label">Fees due</span>
+                    <div class="number" id="disp-fee-chip">NGN 0</div>
+                    <span class="sub">Outstanding balance</span>
+                </div>
+            </div>
 
-                <span class="status-badge status-partial" id="disp-fee-chip">Fees</span>
+            <section class="dash-charts">
+                <article class="chart-card">
+                    <h3>Subject scores</h3>
+                    <div class="bar-chart" id="sms-bar-chart">
+                        <div class="bar-col"><span class="bar" style="height:92%"></span><small>Maths</small></div>
+                        <div class="bar-col"><span class="bar" style="height:85%"></span><small>English</small></div>
+                        <div class="bar-col"><span class="bar" style="height:89%"></span><small>Physics</small></div>
+                        <div class="bar-col"><span class="bar" style="height:91%"></span><small>Chem</small></div>
+                        <div class="bar-col"><span class="bar" style="height:85%"></span><small>Bio</small></div>
+                    </div>
+                </article>
+                <article class="chart-card">
+                    <h3>Term trend</h3>
+                    <svg class="area-chart" viewBox="0 0 240 120" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="smsArea" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.85"></stop>
+                                <stop offset="100%" stop-color="#16325c" stop-opacity="0.15"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#smsArea)" d="M0,90 C30,80 50,40 80,48 C110,56 130,20 160,28 C190,36 210,18 240,24 L240,120 L0,120 Z"></path>
+                    </svg>
+                </article>
+                <article class="chart-card">
+                    <h3>Fee collection</h3>
+                    <div class="donut-wrap">
+                        <div class="donut" id="sms-donut"></div>
+                        <div class="donut-label"><span id="sms-donut-val">70%</span><small>Paid</small></div>
+                    </div>
+                </article>
             </section>
 
             <!-- TAB 1: Student Profile -->
@@ -497,13 +542,40 @@
             document.getElementById('disp-student-name').textContent = student.fullName;
             document.getElementById('disp-student-id').textContent = student.id;
             document.getElementById('disp-student-grade').textContent = `${student.grade} - ${student.department || 'General'}`;
-            document.getElementById('disp-student-status').textContent = `${student.status} Student`;
+            const statusEl = document.getElementById('disp-student-status');
+            if (statusEl) statusEl.textContent = `${student.status} student`;
+
+            const att = student.attendance || { overallRate: 94, presentDays: 47, recentLogs: [] };
+            const acad = student.academicReport || { averageScore: 88, termStanding: '1st in Class', scores: [] };
+            const fin = student.financials || { termFee: 65000, amountPaid: 0, outstandingBalance: 0, history: [] };
+            const cbtHist = window.demosmakDB.getCbtHistory(student.id);
+
+            const attKpi = document.getElementById('sms-kpi-att');
+            if (attKpi) attKpi.textContent = `${att.overallRate || 94}%`;
+            const attSub = document.getElementById('sms-kpi-att-sub');
+            if (attSub) attSub.textContent = `${att.presentDays || 0} sessions present`;
+            const avgKpi = document.getElementById('sms-kpi-avg');
+            if (avgKpi) avgKpi.textContent = `${acad.averageScore || 0}%`;
+            const cbtKpi = document.getElementById('sms-kpi-cbt');
+            if (cbtKpi) cbtKpi.textContent = String(cbtHist.length || 0);
             const feeChip = document.getElementById('disp-fee-chip');
-            if (feeChip && student.financials) {
-                const due = Number(student.financials.outstandingBalance || 0);
-                feeChip.textContent = due === 0 ? 'Fees paid' : `Due NGN ${due.toLocaleString()}`;
-                feeChip.className = `status-badge ${due === 0 ? 'status-paid' : 'status-partial'}`;
+            if (feeChip) feeChip.textContent = `NGN ${Number(fin.outstandingBalance || 0).toLocaleString()}`;
+
+            const barChart = document.getElementById('sms-bar-chart');
+            if (barChart) {
+                const scores = (acad.scores || []).slice(0, 6);
+                barChart.innerHTML = scores.map((s) => `
+                    <div class="bar-col">
+                        <span class="bar" style="height:${Math.max(8, Number(s.score) || 0)}%"></span>
+                        <small>${s.subject.split(' ')[0]}</small>
+                    </div>
+                `).join('') || '<div class="bar-col"><span class="bar" style="height:40%"></span><small>N/A</small></div>';
             }
+            const paidPct = fin.termFee > 0 ? Math.round((fin.amountPaid / fin.termFee) * 100) : 0;
+            const donut = document.getElementById('sms-donut');
+            const donutVal = document.getElementById('sms-donut-val');
+            if (donut) donut.style.background = `conic-gradient(#f59e0b 0 ${paidPct}%, #16325c ${paidPct}% 100%)`;
+            if (donutVal) donutVal.textContent = `${paidPct}%`;
 
             // Tab 1: Profile
             document.getElementById('prof-fullname').textContent = student.fullName;
@@ -557,7 +629,6 @@
             }
 
             // Tab 4: Attendance
-            const att = student.attendance || { overallRate: 94, presentDays: 47, recentLogs: [] };
             document.getElementById('att-rate-display').textContent = `${att.overallRate || 94}%`;
             document.getElementById('att-present-count').textContent = att.presentDays || 45;
 
@@ -579,7 +650,6 @@
             }
 
             // Tab 5: Tuition
-            const fin = student.financials || { termFee: 65000, amountPaid: 45000, outstandingBalance: 20000, history: [] };
             document.getElementById('tuition-term-fee').textContent = `NGN ${Number(fin.termFee).toLocaleString()}`;
             document.getElementById('tuition-paid-amount').textContent = `NGN ${Number(fin.amountPaid).toLocaleString()}`;
             document.getElementById('tuition-balance-amount').textContent = `NGN ${Number(fin.outstandingBalance).toLocaleString()}`;
@@ -613,11 +683,8 @@
             }
 
             // Tab 6: Academic Performance
-            const acad = student.academicReport || { averageScore: 88, termStanding: '1st in Class', scores: [] };
             document.getElementById('acad-avg-display').textContent = `${acad.averageScore}%`;
             document.getElementById('acad-standing-display').textContent = acad.termStanding;
-
-            const cbtHist = window.demosmakDB.getCbtHistory(student.id);
             document.getElementById('acad-cbt-count').textContent = cbtHist.length || 0;
 
             const acadTable = document.getElementById('academic-scores-table');
