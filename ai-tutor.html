@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Academic Assistant (Groq API) | DEMOSMAK TUTORIAL</title>
+    <meta name="description" content="AI-powered 24/7 learning assistant powered by Groq API. Explains difficult concepts, generates practice questions, and assists with revision.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Top Status Bar -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Demosmak AI Learning Assistant &bull; Powered by Groq Llama 3.3
+                </span>
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Strictly Academic &bull; WAEC &bull; JAMB &bull; Cambridge
+                </span>
+            </div>
+            <div class="top-switcher">
+                <label for="global-student-select">Student Session:</label>
+                <select id="global-student-select" class="student-select-input" aria-label="Select student session"></select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="main-header" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon-box">DT</div>
+                <div class="brand-text-block">
+                    <span class="brand-title">DEMOSMAK TUTORIAL</span>
+                    <span class="brand-sub">AI Academic Learning Assistant</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-menu-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#programmes" class="nav-link">Programmes</a></li>
+                <li><a href="cbt.html" class="nav-link">CBT</a></li>
+                <li><a href="payments.html" class="nav-link">Pay Fees</a></li>
+                <li><a href="ai-tutor.html" class="nav-link active">AI Tutor</a></li>
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">
+                        Portals
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sms.html">Student Portal</a></li>
+                        <li><a href="parent.html">Parent Portal</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-cta-group">
+                <a href="cbt.html" class="btn btn-primary btn-sm">Take a CBT test</a>
+                <button type="button" class="mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <header class="page-header-banner">
+        <div class="container page-header-content">
+            <div class="page-title-box">
+                <div class="section-badge" style="background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.25);">
+                    24/7 help
+                </div>
+                <h1>AI Tutor</h1>
+                <p>Ask a topic. Get a short explanation, then practise.</p>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="cbt.html" class="btn btn-accent">Practise on CBT</a>
+                <button type="button" class="btn btn-secondary" onclick="openApiKeyModal()">API settings</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Chat Workspace -->
+    <main class="portal-container">
+        <div class="container">
+
+            <div class="ai-assistant-wrapper">
+                
+                <!-- Left Sidebar: Modes & Engine Settings -->
+                <div class="ai-sidebar">
+                    <h3>Learning Modes</h3>
+                    
+                    <button type="button" class="ai-mode-btn active" data-mode="tutor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <span>Explain Difficult Subjects</span>
+                    </button>
+
+                    <button type="button" class="ai-mode-btn" data-mode="questions">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <span>Generate Practice Questions</span>
+                    </button>
+
+                    <button type="button" class="ai-mode-btn" data-mode="revision">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <span>Assist with Revision</span>
+                    </button>
+
+                    <button type="button" class="ai-mode-btn" data-mode="materials">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>Recommend Learning Materials</span>
+                    </button>
+
+                    <!-- Engine Status Box -->
+                    <div class="groq-config-box">
+                        <label>Active Engine Status</label>
+                        <div id="ai-engine-status-pill" style="font-size: 0.75rem; color: #38bdf8; margin-bottom: 0.75rem; background: rgba(56, 189, 248, 0.1); padding: 0.4rem 0.6rem; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                            Built-in Academic Engine Active
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm btn-block" onclick="openApiKeyModal()">
+                            Configure Groq API Key
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Chat Interface -->
+                <div class="ai-chat-container">
+                    
+                    <div class="ai-chat-header">
+                        <div>
+                            <strong id="active-mode-title" style="color: var(--primary); font-size: 1.05rem;">Explain Difficult Subjects</strong>
+                            <div style="font-size: 0.75rem; color: var(--text-muted);">Trained on secondary & senior school national curricula</div>
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" id="btn-clear-chat">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            Clear Chat
+                        </button>
+                    </div>
+
+                    <!-- Scrollable Chat Messages -->
+                    <div class="ai-messages-scroll" id="ai-messages-list">
+                        <!-- Welcome Message from AI -->
+                        <div class="chat-bubble ai">
+                            <div class="chat-avatar">AI</div>
+                            <div class="chat-content">
+                                <div style="font-weight: 700; margin-bottom: 0.35rem; color: var(--primary);">Demosmak Academic Tutor</div>
+                                <p style="margin-bottom: 0.5rem;">
+                                    Hello! I am your AI-powered learning assistant at Demosmak Tutorial.
+                                </p>
+                                <p style="margin-bottom: 0.5rem;">
+                                    I can help you:
+                                </p>
+                                <ul style="margin-left: 1.25rem; font-size: 0.875rem; margin-bottom: 0.75rem;">
+                                    <li>Explain difficult concepts in Mathematics, Physics, Chemistry, Biology, and English.</li>
+                                    <li>Generate practice exam questions with complete marking schemes.</li>
+                                    <li>Create high-yield revision summaries and memory aids.</li>
+                                    <li>Recommend top textbooks and past question series.</li>
+                                </ul>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                                    Select a quick topic chip below or type any question to begin.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Prompt Chips Row -->
+                    <div class="prompt-chips-row">
+                        <button type="button" class="prompt-chip" onclick="askPreset('Explain how to solve quadratic equations step by step')">
+                            Quadratic Equations
+                        </button>
+                        <button type="button" class="prompt-chip" onclick="askPreset('Explain photosynthesis light-dependent and light-independent stages')">
+                            Photosynthesis Stages
+                        </button>
+                        <button type="button" class="prompt-chip" onclick="askPreset('Explain Newton\'s three laws of motion with real-world examples')">
+                            Newton's Laws
+                        </button>
+                        <button type="button" class="prompt-chip" onclick="askPreset('Explain Pythagoras theorem and Pythagorean triples')">
+                            Pythagoras Theorem
+                        </button>
+                        <button type="button" class="prompt-chip" onclick="askPreset('Generate 3 WAEC standard Physics practice questions on wave motion')">
+                            Physics Wave Questions
+                        </button>
+                    </div>
+
+                    <!-- Input Bar -->
+                    <form id="ai-chat-form" class="ai-chat-input-bar" onsubmit="return false;">
+                        <input type="text" id="ai-query-input" class="ai-input-text" placeholder="Type your academic question or topic here..." required autocomplete="off">
+                        <button type="submit" class="btn btn-primary" id="btn-send-ai">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            Ask Assistant
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Groq API Configuration Modal -->
+    <div class="modal-backdrop" id="groq-api-modal" role="dialog" aria-modal="true">
+        <div class="modal-card" style="max-width: 520px;">
+            <div class="modal-header">
+                <div>
+                    <h3>Groq API Configuration</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Connect live high-speed Groq AI inference</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="closeApiKeyModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+                    You can enter your personal <strong>Groq API Key</strong> below to power live inference via models such as <code>llama-3.3-70b-versatile</code> or <code>llama-3.1-8b-instant</code>. Keys are stored safely in your local browser storage.
+                </p>
+
+                <div class="form-group">
+                    <label for="groq-api-key-input">Groq API Key (starts with gsk_)</label>
+                    <input type="password" id="groq-api-key-input" class="form-control" placeholder="gsk_..." autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="groq-model-select">Groq Model Selection</label>
+                    <select id="groq-model-select" class="form-control">
+                        <option value="llama-3.3-70b-versatile">Llama 3.3 70B Versatile (Recommended)</option>
+                        <option value="llama-3.1-8b-instant">Llama 3.1 8B Instant (Ultra-Fast)</option>
+                    </select>
+                </div>
+
+                <div style="background: var(--bg-surface-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted);">
+                    If no API key is provided, the Demosmak built-in curriculum knowledge base automatically handles all inquiries with verified educational modules.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm" id="btn-remove-api-key" style="margin-right: auto;">
+                    Remove Key
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="closeApiKeyModal()">Cancel</button>
+                <button type="button" class="btn btn-primary" id="btn-save-groq-key">
+                    Save Key & Settings
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <span>&copy; 2026 DEMOSMAK TUTORIAL &bull; AI Learning Directorate</span>
+            <span>Intelligent Secondary & Exam Preparation Assistance</span>
+        </div>
+    </footer>
+
+    <!-- Shared Framework Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/groq-service.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        let currentMode = 'tutor';
+        const conversationHistory = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateEngineStatusBadge();
+
+            // Mode Selector
+            const modeBtns = document.querySelectorAll('.ai-mode-btn');
+            modeBtns.forEach(btn => {
+                btn.onclick = () => {
+                    modeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentMode = btn.dataset.mode;
+                    
+                    const titles = {
+                        tutor: 'Explain Difficult Subjects',
+                        questions: 'Generate Practice Questions',
+                        revision: 'Assist with Revision',
+                        materials: 'Recommend Learning Materials'
+                    };
+                    document.getElementById('active-mode-title').textContent = titles[currentMode] || 'Academic Assistant';
+                    showToast(`Switched mode to: ${titles[currentMode]}`, 'info');
+                };
+            });
+
+            // Form Submit
+            const form = document.getElementById('ai-chat-form');
+            form.onsubmit = () => {
+                const input = document.getElementById('ai-query-input');
+                const query = input.value.trim();
+                if (query) {
+                    handleUserQuery(query);
+                    input.value = '';
+                }
+            };
+
+            // Clear Chat
+            document.getElementById('btn-clear-chat').onclick = () => {
+                conversationHistory.length = 0;
+                document.getElementById('ai-messages-list').innerHTML = `
+                    <div class="chat-bubble ai">
+                        <div class="chat-avatar">AI</div>
+                        <div class="chat-content">
+                            <div style="font-weight: 700; margin-bottom: 0.35rem; color: var(--primary);">Demosmak Academic Tutor</div>
+                            <p>Chat history cleared. What topic or subject would you like to explore?</p>
+                        </div>
+                    </div>
+                `;
+                showToast('Chat history cleared.', 'info');
+            };
+
+            // API Key Modal Actions
+            document.getElementById('btn-save-groq-key').onclick = () => {
+                const key = document.getElementById('groq-api-key-input').value.trim();
+                const model = document.getElementById('groq-model-select').value;
+                if (key) {
+                    window.demosmakGroq.setApiKey(key);
+                }
+                window.demosmakGroq.setModel(model);
+                closeApiKeyModal();
+                updateEngineStatusBadge();
+                showToast('Groq settings updated successfully.', 'success');
+            };
+
+            document.getElementById('btn-remove-api-key').onclick = () => {
+                window.demosmakGroq.clearApiKey();
+                document.getElementById('groq-api-key-input').value = '';
+                closeApiKeyModal();
+                updateEngineStatusBadge();
+                showToast('Groq API Key removed. Reverted to built-in curriculum engine.', 'info');
+            };
+        });
+
+        function updateEngineStatusBadge() {
+            const pill = document.getElementById('ai-engine-status-pill');
+            if (!pill) return;
+
+            if (window.demosmakGroq.hasApiKey()) {
+                pill.textContent = `Live Groq API (${window.demosmakGroq.getModel()})`;
+                pill.style.color = '#10b981';
+                pill.style.background = 'rgba(16, 185, 129, 0.1)';
+                pill.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+            } else {
+                pill.textContent = 'Built-in Educational Engine Active';
+                pill.style.color = '#38bdf8';
+                pill.style.background = 'rgba(56, 189, 248, 0.1)';
+                pill.style.borderColor = 'rgba(56, 189, 248, 0.2)';
+            }
+        }
+
+        function openApiKeyModal() {
+            const modal = document.getElementById('groq-api-modal');
+            const keyInput = document.getElementById('groq-api-key-input');
+            const modelSelect = document.getElementById('groq-model-select');
+
+            keyInput.value = window.demosmakGroq.getApiKey();
+            modelSelect.value = window.demosmakGroq.getModel();
+            modal.classList.add('visible');
+        }
+
+        function closeApiKeyModal() {
+            document.getElementById('groq-api-modal').classList.remove('visible');
+        }
+
+        function askPreset(promptText) {
+            document.getElementById('ai-query-input').value = promptText;
+            handleUserQuery(promptText);
+            document.getElementById('ai-query-input').value = '';
+        }
+
+        async function handleUserQuery(query) {
+            const msgList = document.getElementById('ai-messages-list');
+
+            // Append User Bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.innerHTML = `
+                <div class="chat-avatar">ST</div>
+                <div class="chat-content">
+                    <p>${escapeHtml(query)}</p>
+                </div>
+            `;
+            msgList.appendChild(userBubble);
+
+            // Typing Bubble
+            const typingBubble = document.createElement('div');
+            typingBubble.className = 'chat-bubble ai';
+            typingBubble.id = 'ai-typing-indicator';
+            typingBubble.innerHTML = `
+                <div class="chat-avatar">AI</div>
+                <div class="chat-content">
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Generating academic explanation...</span>
+                </div>
+            `;
+            msgList.appendChild(typingBubble);
+            msgList.scrollTop = msgList.scrollHeight;
+
+            // Call Groq / Educational engine
+            conversationHistory.push({ role: 'user', content: query });
+            const response = await window.demosmakGroq.askAssistant(query, currentMode, conversationHistory);
+
+            const indicator = document.getElementById('ai-typing-indicator');
+            if (indicator) indicator.remove();
+
+            // Format markdown to HTML
+            const formattedHtml = renderMarkdownLite(response.content);
+
+            const aiBubble = document.createElement('div');
+            aiBubble.className = 'chat-bubble ai';
+            aiBubble.innerHTML = `
+                <div class="chat-avatar">AI</div>
+                <div class="chat-content">
+                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.35rem; display: flex; justify-content: space-between;">
+                        <span>Demosmak AI (${response.source})</span>
+                        <button type="button" class="btn btn-secondary btn-sm" style="padding: 0.15rem 0.5rem; font-size: 0.7rem;" onclick="copyBubbleText(this)">Copy</button>
+                    </div>
+                    <div class="ai-body-text">${formattedHtml}</div>
+                </div>
+            `;
+            msgList.appendChild(aiBubble);
+            msgList.scrollTop = msgList.scrollHeight;
+
+            conversationHistory.push({ role: 'assistant', content: response.content });
+        }
+
+        function copyBubbleText(btn) {
+            const text = btn.closest('.chat-content').querySelector('.ai-body-text').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            });
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function renderMarkdownLite(md) {
+            let html = md;
+            // Headers
+            html = html.replace(/^#### (.*$)/gim, '<h5 style="margin: 0.75rem 0 0.25rem; font-weight: 700;">$1</h5>');
+            html = html.replace(/^### (.*$)/gim, '<h4 style="margin: 1rem 0 0.5rem; color: var(--primary);">$1</h4>');
+            html = html.replace(/^## (.*$)/gim, '<h3 style="margin: 1.25rem 0 0.5rem; color: var(--primary);">$1</h3>');
+            // Bold
+            html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+            // Italic
+            html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+            // Unordered list items
+            html = html.replace(/^\- (.*$)/gim, '<li style="margin-left: 1.25rem; margin-bottom: 0.25rem;">$1</li>');
+            // Line breaks
+            html = html.replace(/\n\n/g, '<br><br>');
+            return html;
+        }
+    </script>
+</body>
+</html>
+

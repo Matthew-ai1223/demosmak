@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Payment Management | DEMOSMAK TUTORIAL</title>
+    <meta name="description" content="Online tuition payments with Paystack integration, instant automatic verification, digital receipts, and outstanding fee tracking.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Top Status Bar -->
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Paystack Merchant Gateway &bull; 256-Bit SSL Encrypted
+                </span>
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Instant Automated Bursary Verification
+                </span>
+            </div>
+            <div class="top-switcher">
+                <label for="global-student-select">Student Account:</label>
+                <select id="global-student-select" class="student-select-input" aria-label="Select student account"></select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="main-header" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon-box">DT</div>
+                <div class="brand-text-block">
+                    <span class="brand-title">DEMOSMAK TUTORIAL</span>
+                    <span class="brand-sub">Tuition & Bursary Directorate</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-menu-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#programmes" class="nav-link">Programmes</a></li>
+                <li><a href="cbt.html" class="nav-link">CBT</a></li>
+                <li><a href="payments.html" class="nav-link active">Pay Fees</a></li>
+                <li><a href="ai-tutor.html" class="nav-link">AI Tutor</a></li>
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">
+                        Portals
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sms.html">Student Portal</a></li>
+                        <li><a href="parent.html">Parent Portal</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-cta-group">
+                <a href="sms.html" class="btn btn-secondary btn-sm">Student profile</a>
+                <button type="button" class="mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <header class="page-header-banner">
+        <div class="container page-header-content">
+            <div class="page-title-box">
+                <div class="section-badge" style="background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.25);">
+                    Paystack
+                </div>
+                <h1>Pay tuition</h1>
+                <p>Pay the balance due. Get a digital receipt.</p>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                <a href="#pay-now" class="btn btn-accent">Pay now</a>
+                <a href="sms.html" class="btn btn-secondary">View records</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Payment Container -->
+    <main class="portal-container">
+        <div class="container">
+
+            <!-- Active Student Financial Summary Header -->
+            <section class="student-context-card">
+                <div class="student-info-meta">
+                    <div class="student-avatar" id="pay-student-avatar">CO</div>
+                    <div class="student-details">
+                        <h3 id="pay-student-name">Chidinma Okafor</h3>
+                        <div class="student-badges">
+                            <span class="status-badge" style="background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;" id="pay-student-id">DT-2026-001</span>
+                            <span class="status-badge" style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1;" id="pay-student-grade">SSS 3</span>
+                            <span class="status-badge status-partial" id="pay-student-fin-status">Outstanding Balance</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">
+                    All payments are processed via official Paystack channels and credited immediately.
+                </div>
+            </section>
+
+            <!-- Financial Status Overview Cards -->
+            <div class="stats-cards-grid">
+                <div class="stat-kpi-card">
+                    <span class="label">Total Term Tuition</span>
+                    <div class="number" id="kpi-term-total">NGN 65,000</div>
+                    <span class="sub">Academic Session 2026</span>
+                </div>
+                <div class="stat-kpi-card">
+                    <span class="label">Amount Paid To Date</span>
+                    <div class="number" style="color: var(--success);" id="kpi-amount-paid">NGN 45,000</div>
+                    <span class="sub">Paystack Verified</span>
+                </div>
+                <div class="stat-kpi-card">
+                    <span class="label">Outstanding Balance</span>
+                    <div class="number" style="color: var(--danger);" id="kpi-outstanding-balance">NGN 20,000</div>
+                    <span class="sub">Due before term examinations</span>
+                </div>
+                <div class="stat-kpi-card">
+                    <span class="label">Payment Status</span>
+                    <div class="number" style="font-size: 1.35rem;" id="kpi-status-text">Partial</div>
+                    <span class="sub">Receipts automatically generated</span>
+                </div>
+            </div>
+
+            <!-- Payment Action & Form Split Layout -->
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; margin-bottom: 3rem;">
+                
+                <!-- Make Payment Form Card -->
+                <div class="data-table-card" id="pay-now" style="margin-bottom: 0;">
+                    <div class="table-header-bar">
+                        <h3>Online Tuition & Fee Checkout</h3>
+                        <span class="status-badge status-active">Paystack Direct</span>
+                    </div>
+
+                    <form id="payment-checkout-form" style="padding: 2rem;" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="pay-category">Fee Category / Description *</label>
+                            <select id="pay-category" class="form-control" required>
+                                <option value="Term Tuition Outstanding Balance">Term Tuition Balance Clearance</option>
+                                <option value="Term Tuition Full Payment">Term Tuition Full Enrolment</option>
+                                <option value="CBT Online Assessment Portal License">CBT Assessment Portal Full License (NGN 10,000)</option>
+                                <option value="Science Laboratory & Practical Prep Kit">Science Laboratory & Practical Kit (NGN 15,000)</option>
+                                <option value="WAEC / JAMB Intensive Crash Course">WAEC & JAMB Crash Course (NGN 45,000)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pay-amount">Amount to Pay (NGN) *</label>
+                            <div style="position: relative;">
+                                <input type="number" id="pay-amount" class="form-control" placeholder="20000" min="1000" required style="font-weight: 700; font-size: 1.1rem; padding-left: 3.5rem;">
+                                <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); font-weight: 800; color: var(--text-muted); font-size: 0.95rem;">NGN</span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                                <button type="button" class="btn btn-secondary btn-sm" id="btn-quick-fill-balance">
+                                    Fill Outstanding Balance
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('pay-amount').value = '10000'">
+                                    NGN 10,000
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('pay-amount').value = '25000'">
+                                    NGN 25,000
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="payer-name">Payer Full Name *</label>
+                                <input type="text" id="payer-name" class="form-control" placeholder="e.g. Chief Emmanuel Okafor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="payer-email">Parent / Payer Email *</label>
+                                <input type="email" id="payer-email" class="form-control" placeholder="guardian@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payer-phone">Payer Mobile Phone (for SMS Receipt) *</label>
+                            <input type="tel" id="payer-phone" class="form-control" placeholder="+234 800 000 0000" required>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-block btn-lg" id="btn-trigger-paystack">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            Proceed to Paystack Checkout
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Guidance & Security Information -->
+                <div>
+                    <div class="data-table-card" style="padding: 2rem; margin-bottom: 1.5rem;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem;">Automatic Account Verification</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+                            Demosmak Tutorial uses direct Paystack webhook reconciliation. The moment your transaction succeeds:
+                        </p>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem; color: var(--text-secondary);">
+                            <li style="display: flex; gap: 0.5rem; align-items: center;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>The student's outstanding balance is automatically updated in real-time.</span>
+                            </li>
+                            <li style="display: flex; gap: 0.5rem; align-items: center;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>An official digital receipt with unique transaction reference is generated.</span>
+                            </li>
+                            <li style="display: flex; gap: 0.5rem; align-items: center;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>The payment record becomes permanently viewable in the Parent and Admin portals.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="data-table-card" style="padding: 2rem; background: var(--bg-surface-subtle);">
+                        <h4 style="margin-bottom: 0.5rem;">Need Physical Bank Transfer?</h4>
+                        <p style="font-size: 0.85rem; margin-bottom: 1rem;">
+                            Direct transfers to our Titan Trust Bank / Paystack dedicated account number are also supported inside the checkout modal under the <strong>Bank Transfer</strong> tab.
+                        </p>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">
+                            For bursary enquiries or customized payment plans, please email <strong>bursar@demosmaktutorial.edu.ng</strong>.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Student Payment History & Digital Receipts Table -->
+            <div class="data-table-card">
+                <div class="table-header-bar">
+                    <h3>Student Payment History & Official Receipts</h3>
+                    <span class="status-badge status-active">Verified Ledger</span>
+                </div>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Receipt Reference</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Payment Channel</th>
+                            <th>Amount (NGN)</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-payment-history-tbody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <span>&copy; 2026 DEMOSMAK TUTORIAL &bull; Bursary Directorate</span>
+            <span>Secured Online Tuition & CBT Fee Collection</span>
+        </div>
+    </footer>
+
+    <!-- Shared Framework Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/payment-engine.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFinancialDashboard();
+
+            window.addEventListener('studentChanged', () => {
+                renderFinancialDashboard();
+            });
+
+            window.addEventListener('paymentCompleted', () => {
+                renderFinancialDashboard();
+            });
+
+            // Quick Fill Button
+            const quickBtn = document.getElementById('btn-quick-fill-balance');
+            if (quickBtn) {
+                quickBtn.onclick = () => {
+                    const student = window.demosmakDB.getActiveStudent();
+                    if (student && student.financials) {
+                        document.getElementById('pay-amount').value = student.financials.outstandingBalance || 0;
+                    }
+                };
+            }
+
+            // Trigger Paystack Button
+            const triggerBtn = document.getElementById('btn-trigger-paystack');
+            if (triggerBtn) {
+                triggerBtn.onclick = () => {
+                    const student = window.demosmakDB.getActiveStudent();
+                    if (!student) {
+                        showToast('Please select a student account first.', 'error');
+                        return;
+                    }
+
+                    const amount = parseFloat(document.getElementById('pay-amount').value);
+                    const desc = document.getElementById('pay-category').value;
+                    const payerName = document.getElementById('payer-name').value.trim() || student.parentName || student.fullName;
+                    const payerEmail = document.getElementById('payer-email').value.trim() || student.parentEmail || student.email;
+
+                    if (!amount || isNaN(amount) || amount <= 0) {
+                        showToast('Please enter a valid amount greater than 0.', 'error');
+                        return;
+                    }
+
+                    // Open Paystack Simulation Modal
+                    window.demosmakPayment.initPaystackModal({
+                        studentId: student.id,
+                        studentName: student.fullName,
+                        email: payerEmail,
+                        amount: amount,
+                        description: desc,
+                        onSuccess: (result) => {
+                            showToast(`Payment of NGN ${amount.toLocaleString()} verified successfully!`, 'success');
+                            renderFinancialDashboard();
+                        },
+                        onCancel: () => {
+                            showToast('Payment window closed.', 'info');
+                        }
+                    });
+                };
+            }
+        });
+
+        function renderFinancialDashboard() {
+            const student = window.demosmakDB.getActiveStudent();
+            if (!student) return;
+
+            // Student Meta Header
+            document.getElementById('pay-student-avatar').textContent = student.avatarInitial || 'CO';
+            document.getElementById('pay-student-name').textContent = student.fullName;
+            document.getElementById('pay-student-id').textContent = student.id;
+            document.getElementById('pay-student-grade').textContent = student.grade;
+
+            // Pre-fill form fields
+            document.getElementById('payer-name').value = student.parentName || student.fullName;
+            document.getElementById('payer-email').value = student.parentEmail || student.email;
+            document.getElementById('payer-phone').value = student.parentPhone || student.phone || '';
+
+            const fin = student.financials || { termFee: 65000, amountPaid: 45000, outstandingBalance: 20000, history: [] };
+
+            document.getElementById('kpi-term-total').textContent = `NGN ${Number(fin.termFee).toLocaleString()}`;
+            document.getElementById('kpi-amount-paid').textContent = `NGN ${Number(fin.amountPaid).toLocaleString()}`;
+            document.getElementById('kpi-outstanding-balance').textContent = `NGN ${Number(fin.outstandingBalance).toLocaleString()}`;
+            
+            const statusEl = document.getElementById('kpi-status-text');
+            const badgeEl = document.getElementById('pay-student-fin-status');
+
+            if (fin.outstandingBalance === 0) {
+                statusEl.textContent = 'Fully Settled';
+                statusEl.style.color = 'var(--success)';
+                badgeEl.textContent = 'Account Paid';
+                badgeEl.className = 'status-badge status-paid';
+            } else {
+                statusEl.textContent = `Partial (NGN ${Number(fin.outstandingBalance).toLocaleString()} Due)`;
+                statusEl.style.color = 'var(--danger)';
+                badgeEl.textContent = 'Outstanding Balance';
+                badgeEl.className = 'status-badge status-partial';
+            }
+
+            // Set default payment amount to outstanding balance
+            document.getElementById('pay-amount').value = fin.outstandingBalance > 0 ? fin.outstandingBalance : 10000;
+
+            // Render History Table
+            const tbody = document.getElementById('student-payment-history-tbody');
+            if (tbody && fin.history) {
+                if (fin.history.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No payment records on file yet for this student.</td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = fin.history.map(h => `
+                    <tr>
+                        <td class="font-mono"><strong>${h.ref}</strong></td>
+                        <td>${h.date}</td>
+                        <td>${h.description}</td>
+                        <td>${h.channel || 'Paystack Instant'}</td>
+                        <td style="font-weight: 700; color: var(--success);">NGN ${Number(h.amount).toLocaleString()}</td>
+                        <td><span class="status-badge status-active">Verified</span></td>
+                        <td>
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="showReceiptByRef('${h.ref}')">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                                Digital Receipt
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function showReceiptByRef(ref) {
+            const student = window.demosmakDB.getActiveStudent();
+            if (!student || !student.financials) return;
+            const record = student.financials.history.find(h => h.ref === ref);
+            if (record) {
+                window.demosmakPayment.showDigitalReceipt(record, student);
+            }
+        }
+    </script>
+</body>
+</html>
+

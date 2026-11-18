@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMOSMAK TUTORIAL | Extra Lessons, CBT & Exam Prep</title>
+    <meta name="description" content="Extra lessons, CBT mocks, and exam prep for Primary, JSS, SSS, WAEC and JAMB students.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="container">
+            <div class="top-info">
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    +234 803 123 4567
+                </span>
+                <span class="top-info-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    admissions@demosmaktutorial.edu.ng
+                </span>
+            </div>
+            <div class="top-switcher">
+                <label for="global-student-select">View as student:</label>
+                <select id="global-student-select" class="student-select-input" aria-label="Select active student session"></select>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-header" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Demosmak Tutorial Home">
+                <div class="brand-icon-box">DT</div>
+                <div class="brand-text-block">
+                    <span class="brand-title">DEMOSMAK TUTORIAL</span>
+                    <span class="brand-sub">Academic Excellence & CBT Portal</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-menu-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#programmes" class="nav-link">Programmes</a></li>
+                <li><a href="cbt.html" class="nav-link">CBT</a></li>
+                <li><a href="payments.html" class="nav-link">Pay Fees</a></li>
+                <li><a href="ai-tutor.html" class="nav-link">AI Tutor</a></li>
+                <li class="nav-item-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false">
+                        Portals
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <ul class="nav-dropdown">
+                        <li><a href="sms.html">Student Portal</a></li>
+                        <li><a href="parent.html">Parent Portal</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-cta-group">
+                <button type="button" class="btn btn-primary btn-sm open-register-modal-btn">Register</button>
+                <button type="button" class="mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="section-badge">Primary • JSS • SSS • WAEC • JAMB</div>
+                <h1>Extra lessons that raise exam scores</h1>
+                <p class="hero-lead">
+                    Register once. Get tutoring, CBT mocks, and fee payment in one portal.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="hero-stat"><strong>10,000+</strong><span>CBT tests taken</span></div>
+                    <div class="hero-stat"><strong>92.8%</strong><span>JAMB pass rate</span></div>
+                    <div class="hero-stat"><strong>1 click</strong><span>Online enrolment</span></div>
+                </div>
+
+                <div class="hero-actions">
+                    <button type="button" class="btn btn-primary btn-lg open-register-modal-btn">Register a student</button>
+                    <a href="cbt.html" class="btn btn-accent btn-lg">Start a CBT mock</a>
+                    <a href="#programmes" class="btn btn-secondary btn-lg">See programmes</a>
+                </div>
+            </div>
+
+            <div class="hero-carousel" id="hero-slider" aria-label="Demosmak Tutorial Highlights">
+                <div class="carousel-slide active" data-index="0">
+                    <img src="assets/img/hero-1.jpg" alt="Students engaged in focused learning and academic study">
+                    <div class="slide-caption-overlay">
+                        <h3>Small-group tutorial clinics</h3>
+                        <p>Clear teaching. Faster progress.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" data-index="1">
+                    <img src="assets/img/hero-2.jpg" alt="Dedicated tutoring and problem-solving workshop">
+                    <div class="slide-caption-overlay">
+                        <h3>Personalised subject help</h3>
+                        <p>Maths, English, sciences, and more.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" data-index="2">
+                    <img src="assets/img/hero-3.jpg" alt="Modern computer based assessment training">
+                    <div class="slide-caption-overlay">
+                        <h3>JAMB-style CBT practice</h3>
+                        <p>Timed tests with instant scores.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-dots" id="carousel-dots">
+                    <button type="button" class="carousel-dot active" aria-label="Slide 1"></button>
+                    <button type="button" class="carousel-dot" aria-label="Slide 2"></button>
+                    <button type="button" class="carousel-dot" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-controls">
+                    <button type="button" class="carousel-arrow" id="carousel-prev" aria-label="Previous Slide">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button type="button" class="carousel-arrow" id="carousel-next" aria-label="Next Slide">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="quick-access-section">
+        <div class="container">
+            <div class="quick-access-grid">
+                <a href="sms.html" class="quick-card">
+                    <div class="quick-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                    </div>
+                    <h3>Student Portal</h3>
+                    <p>Profile, attendance, and reports.</p>
+                    <span class="card-cta">Open portal</span>
+                </a>
+
+                <a href="#programmes" class="quick-card">
+                    <div class="quick-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h3>Programmes</h3>
+                    <p>Primary, JSS, SSS, WAEC, JAMB.</p>
+                    <span class="card-cta">View catalogue</span>
+                </a>
+
+                <a href="cbt.html" class="quick-card">
+                    <div class="quick-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>CBT Tests</h3>
+                    <p>Timed mocks. Instant marking.</p>
+                    <span class="card-cta">Start a test</span>
+                </a>
+
+                <a href="payments.html" class="quick-card">
+                    <div class="quick-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    </div>
+                    <h3>Pay Tuition</h3>
+                    <p>Paystack. Receipts. Balance due.</p>
+                    <span class="card-cta">Pay now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience-section" id="get-started">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Start here</span>
+                <h2>Choose your next step</h2>
+                <p>Three short paths. No extra reading required.</p>
+            </div>
+            <div class="audience-grid">
+                <article class="audience-card">
+                    <h3>I am a student</h3>
+                    <p>Enrol, practise CBT, and track scores.</p>
+                    <button type="button" class="btn btn-primary open-register-modal-btn">Register now</button>
+                    <a href="cbt.html" class="btn btn-secondary">Take a mock test</a>
+                </article>
+                <article class="audience-card">
+                    <h3>I am a parent</h3>
+                    <p>Check attendance, results, and fees.</p>
+                    <a href="parent.html" class="btn btn-primary">Open parent portal</a>
+                    <a href="payments.html" class="btn btn-secondary">Pay tuition</a>
+                </article>
+                <article class="audience-card">
+                    <h3>I need extra help</h3>
+                    <p>Ask the AI tutor or join a programme.</p>
+                    <a href="ai-tutor.html" class="btn btn-primary">Ask the AI tutor</a>
+                    <a href="#programmes" class="btn btn-secondary">Browse programmes</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="offerings-section" id="offerings">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">What we teach</span>
+                <h2>Support that turns into results</h2>
+                <p>Pick the help you need, then take action.</p>
+            </div>
+
+            <div class="offerings-grid">
+                <div class="offering-card">
+                    <div class="offering-number">01</div>
+                    <div class="offering-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <h3>Extra lessons</h3>
+                    <p>After-school and weekend classes that fill school gaps.</p>
+                    <button type="button" class="btn btn-primary open-register-modal-btn">Enrol</button>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-number">02</div>
+                    <div class="offering-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    </div>
+                    <h3>Difficult subjects</h3>
+                    <p>Maths, Physics, Chemistry, and English made simple.</p>
+                    <a href="ai-tutor.html" class="btn btn-outline-primary">Ask AI tutor</a>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-number">03</div>
+                    <div class="offering-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3>Problem-solving</h3>
+                    <p>Speed drills and exam tactics under real time limits.</p>
+                    <a href="cbt.html" class="btn btn-outline-primary">Start CBT</a>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-number">04</div>
+                    <div class="offering-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Exam preparation</h3>
+                    <p>WAEC, NECO, JAMB, and BECE past-question coaching.</p>
+                    <a href="#programmes" class="btn btn-outline-primary">See prep classes</a>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-number">05</div>
+                    <div class="offering-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Personalised teaching</h3>
+                    <p>Assigned tutors, progress checks, and parent updates.</p>
+                    <a href="sms.html" class="btn btn-outline-primary">View student file</a>
+                </div>
+
+                <div class="offering-card" style="background: var(--primary); color: #ffffff;">
+                    <div class="offering-number" style="color: #93c5fd;">Ready?</div>
+                    <div class="offering-icon" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #ffffff;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </div>
+                    <h3 style="color: #ffffff;">Join this term</h3>
+                    <p style="color: #cbd5e1;">Get a student ID, subject slots, and CBT access today.</p>
+                    <button type="button" class="btn btn-secondary btn-block open-register-modal-btn">Register online</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programmes-section" id="programmes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Catalogue</span>
+                <h2>Choose a programme</h2>
+                <p>Filter by level, then enrol.</p>
+            </div>
+
+            <div class="filter-tabs" id="programme-filters">
+                <button type="button" class="filter-btn active" data-category="all">All</button>
+                <button type="button" class="filter-btn" data-category="junior">JSS</button>
+                <button type="button" class="filter-btn" data-category="senior">SSS</button>
+                <button type="button" class="filter-btn" data-category="exam-prep">JAMB & WAEC</button>
+                <button type="button" class="filter-btn" data-category="primary">Primary</button>
+            </div>
+
+            <div class="programmes-grid" id="programmes-list-container"></div>
+        </div>
+    </section>
+
+    <section class="cbt-highlight-section" id="cbt-preview">
+        <div class="container cbt-split-grid">
+            <div class="cbt-text-col">
+                <div class="section-badge">CBT lab</div>
+                <h2>Exam practice that feels real</h2>
+                <p>Timed tests. Instant scores. Answers explained.</p>
+
+                <div class="cbt-feature-list">
+                    <div class="cbt-feat-item">
+                        <div class="cbt-feat-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div>
+                            <div class="cbt-feat-title">Timed engine</div>
+                            <div class="cbt-feat-desc">JAMB / WAEC countdown.</div>
+                        </div>
+                    </div>
+                    <div class="cbt-feat-item">
+                        <div class="cbt-feat-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <div>
+                            <div class="cbt-feat-title">Auto marking</div>
+                            <div class="cbt-feat-desc">Score and grade at once.</div>
+                        </div>
+                    </div>
+                    <div class="cbt-feat-item">
+                        <div class="cbt-feat-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        </div>
+                        <div>
+                            <div class="cbt-feat-title">Solutions</div>
+                            <div class="cbt-feat-desc">Every question explained.</div>
+                        </div>
+                    </div>
+                    <div class="cbt-feat-item">
+                        <div class="cbt-feat-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div>
+                            <div class="cbt-feat-title">Saved to profile</div>
+                            <div class="cbt-feat-desc">Results follow the student.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="cbt.html" class="btn btn-accent btn-lg">Launch CBT</a>
+                    <a href="sms.html" class="btn btn-secondary btn-lg" style="background: rgba(255,255,255,0.1); color: #ffffff; border-color: rgba(255,255,255,0.2);">View scores</a>
+                </div>
+            </div>
+
+            <div class="cbt-media-col">
+                <div class="cbt-img-frame">
+                    <img src="assets/img/cbt-secion.jpg" alt="Students taking computerized assessment tests at Demosmak CBT centre">
+                </div>
+                <div class="cbt-stat-float">
+                    <div class="stat-circle-accent">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 1.15rem;">10,000+ tests</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">92.8% JAMB pass rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-section">
+        <div class="container final-cta-inner">
+            <div>
+                <h2>Enrol in under two minutes</h2>
+                <p>Create a student ID, then pay or start a CBT mock.</p>
+            </div>
+            <div class="final-cta-actions">
+                <button type="button" class="btn btn-accent btn-lg open-register-modal-btn">Register a student</button>
+                <a href="payments.html" class="btn btn-secondary btn-lg">Pay tuition</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-backdrop" id="registration-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modal-title">Register a student</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Creates a student ID instantly</p>
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" id="close-register-modal-btn" aria-label="Close Modal">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <form id="student-registration-form">
+                <div class="modal-body">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="reg-fullname">Student full name *</label>
+                            <input type="text" id="reg-fullname" class="form-control" placeholder="e.g. Ibrahim Suleiman" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Email *</label>
+                            <input type="email" id="reg-email" class="form-control" placeholder="student@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="reg-phone">Phone *</label>
+                            <input type="tel" id="reg-phone" class="form-control" placeholder="+234 800 000 0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-grade">Class *</label>
+                            <select id="reg-grade" class="form-control" required>
+                                <option value="">Select class</option>
+                                <option value="SSS 3">SSS 3</option>
+                                <option value="SSS 2">SSS 2</option>
+                                <option value="SSS 1">SSS 1</option>
+                                <option value="JSS 3">JSS 3</option>
+                                <option value="JSS 2">JSS 2</option>
+                                <option value="JSS 1">JSS 1</option>
+                                <option value="JAMB / UTME Intensive">JAMB / UTME</option>
+                                <option value="Primary 6">Primary 6</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="reg-parent-name">Parent / guardian *</label>
+                            <input type="text" id="reg-parent-name" class="form-control" placeholder="e.g. Alh. Suleiman Bello" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-parent-phone">Parent phone *</label>
+                            <input type="tel" id="reg-parent-phone" class="form-control" placeholder="+234 801 111 2222" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subjects (pick at least two)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Mathematics" checked> Mathematics</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="English Language" checked> English Language</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Physics"> Physics</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Chemistry"> Chemistry</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Biology"> Biology</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Economics"> Economics</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Government"> Government</label>
+                            <label class="checkbox-label"><input type="checkbox" name="reg_subjects" value="Basic Science"> Basic Science</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('registration-modal').classList.remove('visible')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create student ID</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">
+                    <div class="brand-icon-box" style="background: #2563eb;">DT</div>
+                    <div class="brand-text-block">
+                        <span class="brand-title">DEMOSMAK TUTORIAL</span>
+                        <span class="brand-sub" style="color: #94a3b8;">Academic Excellence</span>
+                    </div>
+                </a>
+                <p>Extra lessons, CBT practice, and exam coaching for ambitious students.</p>
+                <div style="font-size: 0.825rem; color: #94a3b8;">
+                    <strong>Campus:</strong> 12 Tutorial Way, Academic Crescent, Lagos.
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Go to</h4>
+                <ul class="footer-links">
+                    <li><a href="sms.html">Student Portal</a></li>
+                    <li><a href="cbt.html">CBT Tests</a></li>
+                    <li><a href="payments.html">Pay Tuition</a></li>
+                    <li><a href="ai-tutor.html">AI Tutor</a></li>
+                    <li><a href="parent.html">Parent Portal</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Programmes</h4>
+                <ul class="footer-links">
+                    <li><a href="#programmes">JSS 1–3</a></li>
+                    <li><a href="#programmes">SSS 1–3</a></li>
+                    <li><a href="#programmes">WAEC & NECO</a></li>
+                    <li><a href="#programmes">JAMB / UTME</a></li>
+                    <li><a href="#programmes">Primary</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+2348031234567">+234 803 123 4567</a></li>
+                    <li><a href="tel:+2348124567890">+234 812 456 7890</a></li>
+                    <li><a href="mailto:admissions@demosmaktutorial.edu.ng">admissions@demosmaktutorial.edu.ng</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; 2026 DEMOSMAK TUTORIAL. All rights reserved.</span>
+            <span>Accredited tutorial centre</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.getElementById('carousel-prev');
+            const nextBtn = document.getElementById('carousel-next');
+            let current = 0;
+            let timer = null;
+
+            function showSlide(index) {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('active', i === index);
+                    dots[i].classList.toggle('active', i === index);
+                });
+                current = index;
+            }
+
+            function nextSlide() {
+                showSlide((current + 1) % slides.length);
+            }
+
+            function prevSlide() {
+                showSlide((current - 1 + slides.length) % slides.length);
+            }
+
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    clearInterval(timer);
+                    nextSlide();
+                    startAuto();
+                });
+                prevBtn.addEventListener('click', () => {
+                    clearInterval(timer);
+                    prevSlide();
+                    startAuto();
+                });
+            }
+
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(timer);
+                    showSlide(idx);
+                    startAuto();
+                });
+            });
+
+            function startAuto() {
+                timer = setInterval(nextSlide, 5000);
+            }
+            startAuto();
+
+            renderProgrammes('all');
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderProgrammes(btn.dataset.category);
+                });
+            });
+        });
+
+        function renderProgrammes(category = 'all') {
+            const container = document.getElementById('programmes-list-container');
+            if (!container || !window.demosmakDB) return;
+
+            const allProgs = window.demosmakDB.getProgrammes();
+            const filtered = category === 'all' ? allProgs : allProgs.filter(p => p.category === category);
+
+            container.innerHTML = filtered.map(p => `
+                <div class="programme-card">
+                    <div class="prog-card-header">
+                        <span class="prog-badge">${p.levelBadge}</span>
+                        <h3>${p.title}</h3>
+                        <span class="prog-meta">${p.duration}</span>
+                    </div>
+                    <div class="prog-card-body">
+                        <p>${p.description}</p>
+                        <div class="subject-pills">
+                            ${p.subjects.map(s => `<span class="subject-pill">${s}</span>`).join('')}
+                        </div>
+                        <div class="prog-schedule-box">
+                            <strong>Schedule:</strong> ${p.schedule}
+                        </div>
+                    </div>
+                    <div class="prog-card-footer">
+                        <div class="prog-fee">
+                            <span class="prog-fee-label">Term fee</span>
+                            <span class="prog-fee-val">NGN ${p.fee.toLocaleString()}</span>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-sm open-register-modal-btn">Enrol</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
