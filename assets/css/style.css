@@ -1452,12 +1452,19 @@ a.btn:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cbt-test-info {
+    min-width: 0;
 }
 
 .cbt-test-info h3 {
     color: #ffffff;
     font-size: 1.2rem;
     margin-bottom: 0.2rem;
+    overflow-wrap: anywhere;
 }
 
 .cbt-test-info p {
@@ -1531,6 +1538,8 @@ a.btn:hover {
     color: var(--text-primary);
     line-height: 1.5;
     margin-bottom: 2rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .options-list {
@@ -1542,7 +1551,7 @@ a.btn:hover {
 
 .option-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     padding: 1rem 1.25rem;
     border: 1px solid var(--border);
@@ -1575,6 +1584,8 @@ a.btn:hover {
     color: var(--text-primary);
     cursor: pointer;
     flex-grow: 1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .cbt-nav-controls {
@@ -1582,6 +1593,8 @@ a.btn:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
 }
@@ -1729,13 +1742,14 @@ a.btn:hover {
 
 .ai-assistant-wrapper {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 280px minmax(0, 1fr);
     background: #ffffff;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     overflow: hidden;
-    height: 720px;
+    min-height: 560px;
+    height: min(720px, calc(100dvh - 180px));
 }
 
 .ai-sidebar {
@@ -1812,6 +1826,8 @@ a.btn:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-width: 0;
+    min-height: 0;
 }
 
 .ai-chat-header {
@@ -1820,22 +1836,28 @@ a.btn:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
     background: #fafafa;
 }
 
 .ai-messages-scroll {
     flex-grow: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
 }
 
 .chat-bubble {
     display: flex;
     gap: 0.85rem;
-    max-width: 85%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .chat-bubble.user {
@@ -1871,6 +1893,9 @@ a.btn:hover {
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     font-size: 0.925rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .chat-bubble.user .chat-content {
@@ -1950,17 +1975,17 @@ a.btn:hover {
 
 .pstk-modal-backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(15, 23, 42, 0.75);
     display: none;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     z-index: 1000;
     backdrop-filter: blur(4px);
     padding: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .pstk-modal-backdrop.visible {
@@ -1972,9 +1997,10 @@ a.btn:hover {
     width: 100%;
     max-width: 460px;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--shadow-xl);
     animation: modalSlide 0.25s ease-out;
+    margin: auto;
 }
 
 @keyframes modalSlide {
@@ -2255,6 +2281,7 @@ a.btn:hover {
 
 .receipt-dialog {
     max-width: 620px;
+    width: 100%;
 }
 
 .receipt-card-printable {
@@ -2404,17 +2431,17 @@ a.btn:hover {
 
 .modal-backdrop {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(15, 23, 42, 0.75);
     display: none;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     z-index: 1000;
     backdrop-filter: blur(4px);
-    padding: 1.5rem;
+    padding: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .modal-backdrop.visible {
@@ -2426,11 +2453,11 @@ a.btn:hover {
     width: 100%;
     max-width: 650px;
     border-radius: var(--radius-md);
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--shadow-xl);
-    max-height: 90vh;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 
 .modal-header {
@@ -2444,7 +2471,7 @@ a.btn:hover {
 
 .modal-body {
     padding: 1.75rem;
-    overflow-y: auto;
+    overflow: visible;
 }
 
 .modal-footer {
@@ -2678,10 +2705,15 @@ a.btn:hover {
     .ai-assistant-wrapper {
         grid-template-columns: 1fr;
         height: auto;
+        overflow: visible;
     }
     .ai-sidebar {
         border-right: none;
         border-bottom: 1px solid #1e293b;
+    }
+    .ai-chat-container {
+        height: min(68dvh, 560px);
+        min-height: 380px;
     }
     .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -2796,6 +2828,105 @@ a.btn:hover {
     .dash-page .portal-tab-btn.active {
         border-left-color: transparent;
         background: var(--primary-light);
+    }
+    .btn {
+        white-space: normal;
+    }
+    .modal-backdrop,
+    .pstk-modal-backdrop {
+        padding: 0.75rem;
+        align-items: flex-start;
+    }
+    .modal-card,
+    .pstk-modal-dialog,
+    .receipt-dialog {
+        margin: 0.5rem auto 1.5rem;
+        max-width: 100%;
+    }
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    .receipt-card-printable {
+        padding: 1.15rem;
+    }
+    .receipt-info-grid,
+    .receipt-stamp-box {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .receipt-table {
+        font-size: 0.78rem;
+        display: block;
+        overflow-x: auto;
+    }
+    .page-header-banner {
+        padding: 1.25rem 0;
+    }
+    .page-title-box h1 {
+        font-size: 1.45rem;
+    }
+    .cbt-exam-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    .cbt-exam-wrapper {
+        overflow: visible;
+    }
+    .cbt-question-area {
+        padding: 1rem;
+    }
+    .cbt-nav-controls .btn {
+        flex: 1 1 42%;
+    }
+    .question-text {
+        font-size: 1rem;
+    }
+    .ai-assistant-wrapper {
+        height: auto;
+        overflow: visible;
+        min-height: 0;
+    }
+    .ai-sidebar {
+        padding: 1rem;
+    }
+    .ai-mode-btn {
+        white-space: normal;
+    }
+    .ai-chat-container {
+        height: min(70dvh, 560px);
+        min-height: 420px;
+        border-top: 1px solid var(--border);
+    }
+    .ai-chat-header {
+        padding: 0.85rem 1rem;
+    }
+    .ai-messages-scroll {
+        padding: 1rem;
+    }
+    .chat-bubble {
+        max-width: 100%;
+    }
+    .brand-sub {
+        display: none;
+    }
+    .nav-container {
+        height: 64px;
+    }
+    .nav-links {
+        top: 64px;
+        max-height: calc(100dvh - 64px);
     }
 }
 

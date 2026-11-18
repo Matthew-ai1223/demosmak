@@ -113,8 +113,14 @@ function initRegistrationModal() {
     if (!modal) return;
 
     const setScrollLock = (locked) => {
-        document.body.classList.toggle('scroll-locked', locked);
-        document.body.style.overflow = locked ? 'hidden' : '';
+        const desktop = window.matchMedia('(min-width: 769px)').matches;
+        if (desktop) {
+            document.body.classList.toggle('scroll-locked', locked);
+            document.body.style.overflow = locked ? 'hidden' : '';
+        } else {
+            document.body.classList.remove('scroll-locked');
+            document.body.style.overflow = '';
+        }
     };
 
     const openModal = () => {
