@@ -4,6 +4,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('scroll-locked');
+    document.body.style.overflow = '';
     initNavigation();
     initStudentSwitcher();
     initRegistrationModal();
@@ -20,6 +22,13 @@ function initNavigation() {
             navLinks.classList.toggle('active');
             const isOpen = navLinks.classList.contains('active');
             mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 
@@ -103,14 +112,19 @@ function initRegistrationModal() {
 
     if (!modal) return;
 
+    const setScrollLock = (locked) => {
+        document.body.classList.toggle('scroll-locked', locked);
+        document.body.style.overflow = locked ? 'hidden' : '';
+    };
+
     const openModal = () => {
         modal.classList.add('visible');
-        document.body.style.overflow = 'hidden';
+        setScrollLock(true);
     };
 
     const closeModal = () => {
         modal.classList.remove('visible');
-        document.body.style.overflow = '';
+        setScrollLock(false);
     };
 
     document.addEventListener('click', (e) => {
@@ -122,6 +136,11 @@ function initRegistrationModal() {
 
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
+    }
+
+    const cancelBtn = document.getElementById('cancel-register-modal-btn');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeModal);
     }
 
     modal.addEventListener('click', (e) => {

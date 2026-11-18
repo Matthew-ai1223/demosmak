@@ -16,11 +16,12 @@
     --accent-gold: #d97706;      /* Academic Amber */
     
     /* Neutrals */
-    --bg-main: #f8fafc;
+    --bg-main: #e8eef6;
     --bg-surface: #ffffff;
     --bg-surface-subtle: #f1f5f9;
     --border: #e2e8f0;
     --border-strong: #cbd5e1;
+    --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 28px rgba(15, 23, 42, 0.07);
     
     /* Typography */
     --text-primary: #0f172a;
@@ -60,14 +61,24 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    min-height: 100%;
 }
 
 body {
     font-family: var(--font-stack);
     background-color: var(--bg-main);
+    background-image:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.06), transparent 28rem),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.05), transparent 24rem);
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body.scroll-locked {
+    overflow: hidden;
 }
 
 /* ==========================================================================
@@ -291,6 +302,7 @@ a.btn:hover {
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-sm);
+    overflow: visible;
 }
 
 .nav-container {
@@ -448,10 +460,11 @@ a.btn:hover {
    ========================================================================== */
 
 .hero-section {
-    background: linear-gradient(180deg, #ffffff 0%, var(--bg-main) 100%);
+    background: #ffffff;
     padding: 3rem 0 4.25rem;
     position: relative;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
 }
 
 .hero-grid {
@@ -665,10 +678,10 @@ a.btn:hover {
 
 .quick-card {
     background: #ffffff;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
     padding: 1.5rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -676,6 +689,11 @@ a.btn:hover {
     text-decoration: none;
     color: inherit;
 }
+
+.quick-card:nth-child(1) { background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%); }
+.quick-card:nth-child(2) { background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%); }
+.quick-card:nth-child(3) { background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%); }
+.quick-card:nth-child(4) { background: linear-gradient(180deg, #ffffff 0%, #fdf2f8 100%); }
 
 .quick-card:hover {
     transform: translateY(-3px);
@@ -722,10 +740,17 @@ a.btn:hover {
    Core Offerings Section
    ========================================================================== */
 
-.offerings-section {
+.offerings-section,
+.programmes-section {
     padding: 4.25rem 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--border);
+}
+
+.offerings-section {
+    background-color: transparent;
+}
+
+.programmes-section {
+    background-color: transparent;
 }
 
 .offerings-grid {
@@ -735,14 +760,15 @@ a.btn:hover {
 }
 
 .offering-card {
-    background: var(--bg-main);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
     padding: 2rem;
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: var(--shadow-card);
 }
 
 .offering-card:hover {
@@ -814,9 +840,17 @@ a.btn:hover {
    Programmes & Subject Catalogue
    ========================================================================== */
 
+.catalogue-shell {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+    padding: 1.5rem 1.5rem 1.75rem;
+}
+
 .programmes-section {
-    padding: 4.25rem 0;
-    background-color: var(--bg-main);
+    padding: 2.5rem 0 4.25rem;
+    background-color: transparent;
 }
 
 .audience-section {
@@ -832,13 +866,14 @@ a.btn:hover {
 }
 
 .audience-card {
-    background: var(--bg-main);
-    border: 1px solid var(--border);
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
     padding: 1.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
+    box-shadow: var(--shadow-card);
 }
 
 .audience-card h3 {
@@ -883,7 +918,7 @@ a.btn:hover {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
@@ -913,15 +948,15 @@ a.btn:hover {
 .programmes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.25rem;
 }
 
 .programme-card {
     background: #ffffff;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
     transition: var(--transition);
@@ -1179,16 +1214,16 @@ a.btn:hover {
 
 .student-context-card {
     background: #ffffff;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-card);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .student-info-meta {
@@ -1299,18 +1334,24 @@ a.btn:hover {
 /* Common Card Grid */
 .stats-cards-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .stat-kpi-card {
     background: #ffffff;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.25rem 1.35rem;
+    box-shadow: var(--shadow-card);
+    border-top: 3px solid var(--accent);
 }
+
+.stat-kpi-card:nth-child(2) { border-top-color: var(--secondary); }
+.stat-kpi-card:nth-child(3) { border-top-color: var(--accent-gold); }
+.stat-kpi-card:nth-child(4) { border-top-color: #7c3aed; }
+.stat-kpi-card:nth-child(5) { border-top-color: var(--danger); }
 
 .stat-kpi-card .label {
     font-size: 0.8rem;
@@ -1338,11 +1379,19 @@ a.btn:hover {
 /* Tables */
 .data-table-card {
     background: #ffffff;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: var(--shadow-card);
+    margin-bottom: 1.5rem;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
 .table-header-bar {
@@ -1356,12 +1405,6 @@ a.btn:hover {
 
 .table-header-bar h3 {
     font-size: 1.1rem;
-}
-
-.custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
 }
 
 .custom-table th {
@@ -2650,17 +2693,29 @@ a.btn:hover {
 }
 
 @media (max-width: 768px) {
+    .top-info {
+        display: none;
+    }
+    .hero-actions .btn,
+    .final-cta-actions .btn {
+        width: 100%;
+    }
     .nav-links {
         display: none;
-        position: absolute;
+        position: fixed;
         top: 72px;
         left: 0;
         right: 0;
+        max-height: calc(100dvh - 72px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         background: #ffffff;
         flex-direction: column;
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.5rem 1.5rem;
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow-lg);
+        z-index: 200;
+        overscroll-behavior: contain;
     }
     .nav-links.active {
         display: flex;
@@ -2696,6 +2751,17 @@ a.btn:hover {
     .form-grid-2 {
         grid-template-columns: 1fr;
     }
+    .custom-table {
+        min-width: 640px;
+    }
+    .filter-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.35rem;
+    }
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -2704,5 +2770,179 @@ a.btn:hover {
         gap: 0.75rem;
         text-align: center;
     }
+    .dash-layout {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .dash-rail {
+        position: static;
+        padding: 0.75rem;
+    }
+    .dash-page .portal-tabs {
+        flex-direction: row;
+        border-bottom: none;
+        border-right: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 0;
+    }
+    .dash-page .portal-tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .dash-page .portal-tab-btn.active {
+        border-left-color: transparent;
+        background: var(--primary-light);
+    }
 }
+
+/* ==========================================================================
+   Professional dashboard shell (SMS / Parent / Admin)
+   ========================================================================== */
+
+.dash-page .page-header-banner {
+    display: none;
+}
+
+.dash-page .site-footer {
+    padding: 1.25rem 0;
+}
+
+.dash-page .footer-bottom {
+    padding-top: 0;
+    border-top: none;
+}
+
+.dash-page .portal-container {
+    padding: 0;
+}
+
+.dash-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 3rem;
+    align-items: start;
+}
+
+.dash-rail {
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 16px;
+    padding: 1.15rem 0.85rem;
+    box-shadow: var(--shadow-card);
+    position: sticky;
+    top: 88px;
+}
+
+.dash-rail-kicker {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    padding: 0 0.7rem 0.85rem;
+}
+
+.dash-page .portal-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border-bottom: none;
+    margin-bottom: 0;
+    overflow: visible;
+}
+
+.dash-page .portal-tab-btn {
+    width: 100%;
+    justify-content: flex-start;
+    color: #cbd5e1;
+    padding: 0.7rem 0.8rem;
+    border-radius: 10px;
+    border-bottom: none;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+.dash-page .portal-tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.dash-page .portal-tab-btn.active {
+    color: #ffffff;
+    background: var(--accent);
+    border-bottom-color: transparent;
+    font-weight: 700;
+}
+
+.dash-canvas {
+    min-width: 0;
+}
+
+.dash-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.15rem;
+}
+
+.dash-toolbar h1 {
+    font-size: 1.45rem;
+    margin: 0 0 0.2rem;
+}
+
+.dash-toolbar p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.dash-toolbar-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    .dash-layout {
+        grid-template-columns: 1fr;
+    }
+    .dash-rail {
+        position: static;
+        background: #ffffff;
+        color: var(--text-primary);
+        padding: 0.75rem;
+    }
+    .dash-rail-kicker {
+        color: var(--text-muted);
+        padding-bottom: 0.5rem;
+    }
+    .dash-page .portal-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.25rem;
+    }
+    .dash-page .portal-tab-btn {
+        width: auto;
+        color: var(--text-secondary);
+        background: var(--bg-surface-subtle);
+        white-space: nowrap;
+    }
+    .dash-page .portal-tab-btn.active {
+        background: var(--primary);
+        color: #ffffff;
+    }
+}
+
 

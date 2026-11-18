@@ -7,7 +7,7 @@
     <meta name="description" content="Manage student profiles, subject allocation, tutor assignments, attendance tracking, tuition fees, and academic reports.">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="dash-page">
 
     <!-- Top Status Bar -->
     <header class="top-bar">
@@ -68,28 +68,32 @@
         </div>
     </nav>
 
-    <!-- Page Banner -->
-    <header class="page-header-banner">
-        <div class="container page-header-content">
-            <div class="page-title-box">
-                <div class="section-badge" style="background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.25);">
-                    Student file
+    <main class="dash-layout">
+        <aside class="dash-rail">
+            <span class="dash-rail-kicker">Student workspace</span>
+            <nav class="portal-tabs" aria-label="Student management tabs">
+                <button type="button" class="portal-tab-btn active" data-tab="tab-profile">Profile</button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-subjects">Subjects</button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-tutors">Tutors</button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-attendance">Attendance</button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-tuition">Fees</button>
+                <button type="button" class="portal-tab-btn" data-tab="tab-academic">Results</button>
+            </nav>
+        </aside>
+
+        <div class="dash-canvas">
+            <div class="dash-toolbar">
+                <div>
+                    <h1>Student Portal</h1>
+                    <p>Records, fees, and performance in one workspace.</p>
                 </div>
-                <h1>Student Portal</h1>
-                <p>Profile, subjects, attendance, fees, and reports.</p>
+                <div class="dash-toolbar-actions">
+                    <button type="button" class="btn btn-primary btn-sm open-register-modal-btn">Register</button>
+                    <a href="cbt.html" class="btn btn-secondary btn-sm">Start CBT</a>
+                    <a href="payments.html" class="btn btn-secondary btn-sm">Pay fees</a>
+                </div>
             </div>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-                <button type="button" class="btn btn-accent open-register-modal-btn">Register another student</button>
-                <a href="cbt.html" class="btn btn-secondary">Start CBT</a>
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Portal Body -->
-    <main class="portal-container">
-        <div class="container">
-
-            <!-- Active Student Context Header Card -->
             <section class="student-context-card" id="student-context-header">
                 <div class="student-info-meta">
                     <div class="student-avatar" id="disp-student-avatar">CO</div>
@@ -103,45 +107,8 @@
                     </div>
                 </div>
 
-                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                    <a href="cbt.html" class="btn btn-secondary btn-sm">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        Launch CBT Test
-                    </a>
-                    <a href="payments.html" class="btn btn-primary btn-sm">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                        Tuition Account
-                    </a>
-                </div>
+                <span class="status-badge status-partial" id="disp-fee-chip">Fees</span>
             </section>
-
-            <!-- Navigation Tabs -->
-            <nav class="portal-tabs" aria-label="Student management tabs">
-                <button type="button" class="portal-tab-btn active" data-tab="tab-profile">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    Student Profile
-                </button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-subjects">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                    Subject Allocation
-                </button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-tutors">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    Tutor Assignment
-                </button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-attendance">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    Attendance Tracking
-                </button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-tuition">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Tuition Fee Tracking
-                </button>
-                <button type="button" class="portal-tab-btn" data-tab="tab-academic">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                    Academic Performance Report
-                </button>
-            </nav>
 
             <!-- TAB 1: Student Profile -->
             <section id="tab-profile" class="tab-pane active">
@@ -403,7 +370,6 @@
                     </table>
                 </div>
             </section>
-
         </div>
     </main>
 
@@ -473,7 +439,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('registration-modal').classList.remove('visible')">Cancel</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-register-modal-btn">Cancel</button>
                     <button type="submit" class="btn btn-primary">Create Profile & Generate ID</button>
                 </div>
             </form>
@@ -532,6 +498,12 @@
             document.getElementById('disp-student-id').textContent = student.id;
             document.getElementById('disp-student-grade').textContent = `${student.grade} - ${student.department || 'General'}`;
             document.getElementById('disp-student-status').textContent = `${student.status} Student`;
+            const feeChip = document.getElementById('disp-fee-chip');
+            if (feeChip && student.financials) {
+                const due = Number(student.financials.outstandingBalance || 0);
+                feeChip.textContent = due === 0 ? 'Fees paid' : `Due NGN ${due.toLocaleString()}`;
+                feeChip.className = `status-badge ${due === 0 ? 'status-paid' : 'status-partial'}`;
+            }
 
             // Tab 1: Profile
             document.getElementById('prof-fullname').textContent = student.fullName;
